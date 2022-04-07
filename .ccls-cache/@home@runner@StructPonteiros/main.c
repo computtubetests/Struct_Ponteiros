@@ -36,23 +36,23 @@ pelemento inserir(struct e *fim ,struct e *el)
  return el;  // permite atualizar o ponteiro para o fim da fila
 }
 // ----------------
-
-pelemento inserir(struct e *fim ,struct e *el)
-{ // recebe o ponteiro para o fim da fila, bem como o elemento que será adicionado ao fim da fila
-  if(fim->prox == NULL)
+// parte da solução desafio 2
+pelemento retirar(struct e *ini)
+{ // recebe o ponteiro para o fim da fila, bem como o elemento que será adicionado ao fim da sequencia
+  if(ini->prox != NULL) // verifica se há elemento após o primeiro da sequencia
   {
  
-    fim->prox = el; // ultima posicão da fila recebe o novo elemento;
+    ini = ini->prox; // reposiciona o ponteiro de inicio para o proximo elemento da sequencia;
     
   }else
   {
-   printf("Não é o fim!!!");
+   printf("Não há próximo!!!");
   
   } 
   
- return el;  // permite atualizar o ponteiro para o fim da fila
+ return ini;  // permite atualizar o ponteiro para o inicio da sequencia
 }
-
+//. -----------------
 
 int main(void) {
 // passo 1 - criar váriaves baseadas em structs e ponteiros para tais pariáveis
@@ -131,8 +131,10 @@ printf("==================================\n");
   // Solução do desafio 2
   // solução básica - deve apontar o ponteiro de inicio (*inicio) para o proximo elemento a partir de inicio. Ou seja, devesse apontar inicio para inicio-prox (inicio = inicio->prox, se for diferente de NULL.
 
+  inicio = retirar(inicio); // chama função que reposiciona o ponteiro de inicio
+
+  lista(inicio); // mostra a lista com o primeiro elemento excluído, devido ao reposicionamento
   
-  
-  
+  printf("==================================\n");
   return 0;
 }
