@@ -1,10 +1,12 @@
+// código que cria uma sequencia de elementos basedos em uma struct, posteriormente cria uma sequencia de elementos permitindo a lista da sequencia, a inclusão de novos elementos na sequencia (sempre no final) e exclusão de elementos da sequencia (sempre no início)
+
 #include <stdio.h>
 
 typedef struct e
 {
 int valor;
 struct e *prox; // ponteiro para o proximo elemento da sequencia
-}elemento, *pelemento ; //*pelemento é adicionado quando criar a função inserir
+}elemento, *pelemento ; //*pelemento é adicionado quando criar a função inserir - passo 4
 
 
 // parte do passo 3
@@ -13,7 +15,7 @@ void lista(struct e *el)
   printf("%d \n",el->valor);
 
   if(el->prox != NULL)
-  lista(el->prox); // chama a função recursivamente passando como paramêtro o próximo elemento da fila
+  lista(el->prox); // chama a função recursivamente passando como paramêtro o próximo elemento da sequencia
 }
 // -----------
 
@@ -21,11 +23,11 @@ void lista(struct e *el)
 
 // plemento é um ponteiro para a struct p, sem vinculo com nenhuma variável, serve somente como tipagem de retorno
 pelemento inserir(struct e *fim ,struct e *el)
-{ // recebe o ponteiro para o fim da fila, bem como o elemento que será adicionado ao fim da fila
+{ // recebe o ponteiro para o fim da sequencia, bem como o elemento que será adicionado ao fim da sequencia
   if(fim->prox == NULL)
   {
  
-    fim->prox = el; // ultima posicão da fila recebe o novo elemento;
+    fim->prox = el; // ultima posicão da sequencia recebe o novo elemento;
     
   }else
   {
@@ -33,12 +35,12 @@ pelemento inserir(struct e *fim ,struct e *el)
   
   } 
   
- return el;  // permite atualizar o ponteiro para o fim da fila
+ return el;  // permite atualizar o ponteiro para o fim da sequencia
 }
 // ----------------
 // parte da solução desafio 2
 pelemento retirar(struct e *ini)
-{ // recebe o ponteiro para o fim da fila, bem como o elemento que será adicionado ao fim da sequencia
+{ // recebe o ponteiro para o fim da sequencia, bem como o elemento que será adicionado ao fim da sequencia
   if(ini->prox != NULL) // verifica se há elemento após o primeiro da sequencia
   {
  
@@ -55,7 +57,7 @@ pelemento retirar(struct e *ini)
 //. -----------------
 
 int main(void) {
-// passo 1 - criar váriaves baseadas em structs e ponteiros para tais pariáveis
+// passo 1 - criar váriaves baseadas em structs e ponteiros para tais variáveis, ou seja elementos que serão organizados em sequencia
   elemento e1,e2;
   struct e * pe1, * pe2;
 
@@ -71,28 +73,28 @@ int main(void) {
   printf("%d \n",e1.valor);
   printf("%d \n",e2.valor);
 
-// passo 2 - Determinar o inicio e fim da fila
+// passo 2 - Determinar o inicio e fim da sequencia, bem como a sequencia em si
 
   struct e * inicio, * fim; // declara os ponteiros que irão pontar para o início e fim da sequencia de elementos
 
-  inicio = &e1; // identifica o inicio da fila
-  fim = &e2; // identifica o fim da fila
+  inicio = &e1; // identifica o inicio da sequencia
+  fim = &e2; // identifica o fim da sequncia
   
-  pe1->prox = &e2; // cria a fila inicial, vinculando e1 e e2 em sequencia;
+  pe1->prox = &e2; // cria a sequencia inicial, vinculando e1 e e2 em sequencia;
 
   printf("%d \n",pe1->prox->valor);
  //  apenas demonstra que a sequencia foi criada, mostrando o valor de e2 a partir de e1 (ou ponteiro para e1 (pe1))
   printf("==================================\n");
 
 
-  // passo 3 - listar conteúdo da fila (lista), somente nesse momento codificar a função lista()
+  // passo 3 - listar conteúdo da sequencia , somente nesse momento codificar a função lista()
 
   lista(inicio);
-// chama funcão recursiva lista(), passando o ponteiro para o inicio da fila (inicio, que na verdade aponta para e1) para listagem de todos os elementos até chegar em NULL
+// chama funcão recursiva lista(), passando o ponteiro para o inicio da sequencia (inicio, que na verdade aponta para e1) para listagem de todos os elementos até chegar em NULL
   printf("==================================\n");
 // fim passo 3
 
-  // passo 4 - inserir elemento na fila, no final da fila...
+  // passo 4 - inserir elemento na sequencia, sempre no final da sequencia...
 
   // inicialmente criar elemento
   struct e e3;
@@ -100,14 +102,14 @@ int main(void) {
   e3.prox = NULL;
 
 // nesse momento deve-se codificar a funçao inserir
-   fim = inserir(fim,&e3);
-  // insere o elemento novo no fim da fila e atualiza o ponteiro para o fim da fila
+   fim = inserir(fim, &e3);
+  // insere o elemento novo no fim da sequencia e atualiza o ponteiro para o fim da sequencia
   
     lista(inicio);
 
   printf("==================================\n");
 
-  printf("%d \n",fim->valor); // mostra que o ultimo nodo da fila foi devidamente atualizado
+  printf("%d \n",fim->valor); // mostra que o ultimo nodo da sequencia foi devidamente atualizado
 
   // fim do passo 4
 
@@ -129,12 +131,12 @@ printf("==================================\n");
 printf("==================================\n");
 
   // Solução do desafio 2
-  // solução básica - deve apontar o ponteiro de inicio (*inicio) para o proximo elemento a partir de inicio. Ou seja, devesse apontar inicio para inicio-prox (inicio = inicio->prox, se for diferente de NULL.
+  // solução básica - deve apontar o ponteiro de inicio (*inicio) para o proximo elemento a partir de inicio. Ou seja, devesse apontar inicio para inicio->prox (inicio = inicio->prox), se for diferente de NULL.
 
   inicio = retirar(inicio); // chama função que reposiciona o ponteiro de inicio
 
-  lista(inicio); // mostra a lista com o primeiro elemento excluído, devido ao reposicionamento
-  
+  lista(inicio); // mostra a sequencia com o primeiro elemento excluído, devido ao reposicionamento
+  // fim desafio 2
   printf("==================================\n");
   return 0;
 }
