@@ -35,6 +35,24 @@ pelemento inserir(struct e *fim ,struct e *el)
   
  return el;  // permite atualizar o ponteiro para o fim da fila
 }
+// ----------------
+
+pelemento inserir(struct e *fim ,struct e *el)
+{ // recebe o ponteiro para o fim da fila, bem como o elemento que será adicionado ao fim da fila
+  if(fim->prox == NULL)
+  {
+ 
+    fim->prox = el; // ultima posicão da fila recebe o novo elemento;
+    
+  }else
+  {
+   printf("Não é o fim!!!");
+  
+  } 
+  
+ return el;  // permite atualizar o ponteiro para o fim da fila
+}
+
 
 int main(void) {
 // passo 1 - criar váriaves baseadas em structs e ponteiros para tais pariáveis
@@ -97,9 +115,23 @@ int main(void) {
 // 1 - Adicionar um novo elemento na fila e listar;
  // 2 -  Construir um código que permita retirar um elemento da fila. Dicas : devesse retirar o primeiro elemento da fila (inicio), atualizar o apontamento do ponteiro de inicio;
 
+printf("==================================\n");
+  // solução do desafio 1
+
+  struct e e4; // criação de um quarto elemento
+  e4.valor = 15;
+  e4.prox = NULL; //inserir sempre valor nulo inicialmente, antes de posicionar na sequencia de elementos 
+
+// nesse momento deve-se codificar a funçao inserir
+   fim = inserir(fim,&e4);
+  lista(inicio);
+// fim desafio 1  
+printf("==================================\n");
+
+  // Solução do desafio 2
+  // solução básica - deve apontar o ponteiro de inicio (*inicio) para o proximo elemento a partir de inicio. Ou seja, devesse apontar inicio para inicio-prox (inicio = inicio->prox, se for diferente de NULL.
 
   
-
   
   
   return 0;
