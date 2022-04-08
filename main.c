@@ -1,4 +1,4 @@
-// código que cria uma sequencia de elementos basedos em uma struct, posteriormente cria uma sequencia de elementos permitindo a lista da sequencia, a inclusão de novos elementos na sequencia (sempre no final) e exclusão de elementos da sequencia (sempre no início)
+// código que cria um conjunto de elementos basedos em uma struct, posteriormente cria uma sequencia de elementos permitindo a listagem da sequencia, a inclusão de novos elementos na sequencia (sempre no final) e exclusão de elementos da sequencia (sempre no início)
 
 #include <stdio.h>
 
@@ -6,7 +6,7 @@ typedef struct e
 {
 int valor;
 struct e *prox; // ponteiro para o proximo elemento da sequencia
-}elemento, *pelemento ; //*pelemento é adicionado quando criar a função inserir - passo 4
+}elemento, *pelemento; //*pelemento é adicionado quando criar a função inserir - passo 4
 
 
 // parte do passo 3
@@ -75,7 +75,7 @@ int main(void) {
 
 // passo 2 - Determinar o inicio e fim da sequencia, bem como a sequencia em si
 
-  struct e * inicio, * fim; // declara os ponteiros que irão pontar para o início e fim da sequencia de elementos
+  struct e * inicio, * fim; // declara os ponteiros que irão apontar para o início e fim da sequencia de elementos
 
   inicio = &e1; // identifica o inicio da sequencia
   fim = &e2; // identifica o fim da sequncia
@@ -115,7 +115,7 @@ int main(void) {
 
   // Desafios aos alunos :
 // 1 - Adicionar um novo elemento na fila e listar;
- // 2 -  Construir um código que permita retirar um elemento da fila. Dicas : devesse retirar o primeiro elemento da fila (inicio), atualizar o apontamento do ponteiro de inicio;
+ // 2 -  Construir um código que permita retirar um elemento da sequencia. Dicas : devesse retirar o primeiro elemento da fila (inicio), atualizar o apontamento do ponteiro de inicio;
 
 printf("==================================\n");
   // solução do desafio 1
